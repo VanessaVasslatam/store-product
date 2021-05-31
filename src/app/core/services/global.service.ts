@@ -15,8 +15,8 @@ export class GlobalService {
     private basePathCrate= '/api/createProduct';
 
     
-    updateItemProduct(id: number, request: any) : Observable<any>{
-        return this.http.put(this.basePathPutUp,  {'id': id, 'body': request }, { responseType: 'text' });
+    updateItemProduct(id: number, request: any, valor) : Observable<any>{
+        return this.http.put(this.basePathPutUp,  {'id': id, 'body': request,'valor':valor }, { responseType: 'text' });
       }
     createItemProduct(request: any): Observable<any> {
         return this.http.post(this.basePathCrate, request)

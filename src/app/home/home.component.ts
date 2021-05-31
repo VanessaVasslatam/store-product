@@ -75,7 +75,8 @@ export class HomeComponent implements OnInit {
         name: row.name,
         store: row.store,
         type: row.type,
-        amount: row.amount
+        amount: row.amount,
+        valor: this.dataSource.data 
       }      
     });
     dialogRef.afterClosed().subscribe(result => {

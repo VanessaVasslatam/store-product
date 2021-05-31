@@ -38,6 +38,7 @@ export class HomeUpdateDialogComponent implements OnInit {
   }
   onSubmit(): void {
     let idProduct = this.data.id;
+    let valor = this.data.valor
     var body = {
       'id':this.data.id,
       'name':this.formGroup.get('name').value,
@@ -45,10 +46,10 @@ export class HomeUpdateDialogComponent implements OnInit {
       'store':this.formGroup.get('store').value,
       'amount':this.formGroup.get('amount').value
     }
-    this.updateProduct(idProduct, body);
+    this.updateProduct(idProduct, body,valor);
   }
-  updateProduct  = async(id: number, request: any) => {
-    await this.globalService.updateItemProduct(id, request).subscribe(
+  updateProduct  = async(id: number, request: any, valor) => {
+    await this.globalService.updateItemProduct(id, request, valor).subscribe(
       async (data:any) => {        
         this._dialog.close({event:true,data:data});
       },

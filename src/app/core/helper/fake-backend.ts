@@ -75,7 +75,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         let params = request.body;  
         let id = params.id;
         let body = params.body;
-        this.foundGet = PRODUCT.map((product: Product) => {return product;});
+        this.foundGet = params.valor;
+        //PRODUCT.map((product: Product) => {return product;});
         for (let i = 0; i < this.foundGet.length; i++) {                   
           if(this.foundGet[i].id == id){            
             this.foundGet[i].name = body.name
