@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private router: Router,
+    private storageService: StorageService,
     ) {
     this.dataSource = new MatTableDataSource([]);
    }
@@ -97,5 +99,17 @@ export class HomeComponent implements OnInit {
       }else {
       }
     });
+  }
+  close= async() => { 
+    await this.authenticationService.logout().subscribe(
+      async (data:any) => { 
+        this.storageService.removeCurrentSession();
+        this.router.navigate(['/login']);
+        console.log('Cerro'); 
+      },
+      (error:any) => {
+        console.log('Error:' + error);
+      }
+    )
   }
 }

@@ -1,0 +1,16 @@
+.titleHome {
+    text-align: center;
+    margin: 16px 0;
+    font-size: 24px;
+}
+
+.tbVerd {
+    background: #637963;
+    color: #fff;
+}
+
+.contAll {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 16px;
+}

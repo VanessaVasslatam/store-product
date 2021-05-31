@@ -1,55 +1,62 @@
-<p>Administración</p>
-<div class="example-header">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 col-xl-2">
-            <button mat-raised-button class="tdp-button" (click)="createProducto()">Crear</button>
+<p class="titleHome">Administración</p>
+<div class="contAll">
+    <div class="example-header">
+        <div class="row">
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <button mat-raised-button class="tdp-button" (click)="createProducto()">Crear</button>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <button mat-raised-button class="tdp-button tbVerd" (click)="close()">Cerrar</button>
+            </div>
         </div>
     </div>
-</div>
-<div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" matSort>
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-heade>Nombre</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef mat-sort-heade>Tipo</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.type }} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="store">
-            <mat-header-cell *matHeaderCellDef mat-sort-heade>Cantidad</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.store }} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="amount">
-            <mat-header-cell *matHeaderCellDef mat-sort-heade>Precio</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.amount }} </mat-cell>
-        </ng-container>
+    <br>
+    <br>
+    <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-heade>Nombre</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="type">
+                <mat-header-cell *matHeaderCellDef mat-sort-heade>Tipo</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.type }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="store">
+                <mat-header-cell *matHeaderCellDef mat-sort-heade>Cantidad</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.store }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef mat-sort-heade>Precio</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.amount }} </mat-cell>
+            </ng-container>
 
-        <ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef class="actSett cellAct">Acciones</mat-header-cell>
-            <mat-cell *matCellDef="let row;" class="actSett actSettBtn cellAct">
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef class="actSett cellAct">Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let row;" class="actSett actSettBtn cellAct">
 
-                <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{row:row}" aria-label="Example icon-button with a menu">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{row:row}" aria-label="Example icon-button with a menu">
                     <mat-icon>more_vert</mat-icon>
                   </button>
-            </mat-cell>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-    </mat-table>
+        </mat-table>
 
-    <mat-menu #menu="matMenu">
-        <ng-template matMenuContent let-row="row">
-            <button mat-menu-item (click)="productEdit(row)">
+        <mat-menu #menu="matMenu">
+            <ng-template matMenuContent let-row="row">
+                <button mat-menu-item (click)="productEdit(row)">
                 <mat-icon>edit</mat-icon>
                 <span>Editar</span>
             </button>
-            <button mat-menu-item (click)="productDelete(row)">
+                <button mat-menu-item (click)="productDelete(row)">
                 <mat-icon>delete</mat-icon>
                 <span>Eliminar</span>
               </button>
-        </ng-template>
-    </mat-menu>
+            </ng-template>
+        </mat-menu>
 
+    </div>
 </div>
