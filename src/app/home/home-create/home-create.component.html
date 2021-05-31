@@ -1,0 +1,38 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" required type="text" required>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="selectDialog">
+                <mat-label>Tipo</mat-label>
+                <mat-select formControlName="type" required>
+                    <mat-option value="camisetas">camisetas</mat-option>
+                    <mat-option value="vasos">vasos</mat-option>
+                    <mat-option value="comics">comics</mat-option>
+                    <mat-option value="juguetes">juguetes</mat-option>
+                    <mat-option value="accesorios">accesorios</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Cantidad</mat-label>
+                <input matInput formControlName="store" required type="number" min="0">
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="amount" required type="text" required>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button type="submit" mat-button [disabled]="!formGroup.valid">Guardar</button>
+        <button type="button" mat-button (click)="closeDialog()">Cancelar</button>
+    </div>
+</form>
