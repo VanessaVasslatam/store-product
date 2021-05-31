@@ -30,7 +30,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         let found: User = USERS.find((user: User) => {return (params.username === user.username);});
         if (found) {
           if(params.password === found.password) {
-            return of(new HttpResponse({status: 200, body: {token: 'fake-token-jwt', user: found}}));
+            return of(new HttpResponse({status: 200, body: {token: 'token-jwt', user: found}}));
           }else{
             return throwError({code: 2, message: 'El password no es el correcto '});
           }
